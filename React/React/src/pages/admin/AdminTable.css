@@ -1,0 +1,249 @@
+.admin-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Header*/
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.admin-header p {
+  color: #777;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.btn-add {
+  padding: 10px 20px;
+  background-color: #e94560;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #c73652;
+}
+
+/* Messages*/
+.admin-msg {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.admin-msg.error {
+  background-color: #ffeaea;
+  color: #c0392b;
+  border: 1px solid #f5c6cb;
+}
+
+.admin-msg.success {
+  background-color: #eafaf1;
+  color: #27ae60;
+  border: 1px solid #a9dfbf;
+}
+
+/* Form card*/
+.admin-form-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.admin-form-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background-color: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #e94560;
+  background-color: #fff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-save {
+  padding: 10px 24px;
+  background-color: #e94560;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #c73652;
+}
+
+.btn-cancel {
+  padding: 10px 24px;
+  background-color: transparent;
+  color: #777;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f5f5f5;
+}
+
+/* Table */
+.admin-loading {
+  text-align: center;
+  padding: 60px;
+  color: #777;
+}
+
+.admin-table-wrap {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead {
+  background-color: #f8f9fa;
+}
+
+.admin-table th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table td {
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action buttons */
+.btn-edit-sm {
+  padding: 5px 12px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-edit-sm:hover {
+  background-color: #2176ae;
+}
+
+.btn-delete-sm {
+  padding: 5px 12px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-delete-sm:hover {
+  background-color: #c0392b;
+}
+
+/* Role badge */
+.role-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.role-badge.admin {
+  background-color: #ffeaea;
+  color: #e94560;
+}
+
+.role-badge.customer {
+  background-color: #e8f5e9;
+  color: #27ae60;
+}

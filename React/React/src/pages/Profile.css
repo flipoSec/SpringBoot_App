@@ -1,0 +1,192 @@
+.profile-page {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+  padding: 30px 20px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+/* Avatar */
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #e94560;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.profile-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.profile-role {
+  display: inline-block;
+  background-color: #ffeaea;
+  color: #e94560;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* Messages  */
+.profile-msg {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.profile-msg.error {
+  background-color: #ffeaea;
+  color: #c0392b;
+  border: 1px solid #f5c6cb;
+}
+
+.profile-msg.success {
+  background-color: #eafaf1;
+  color: #27ae60;
+  border: 1px solid #a9dfbf;
+}
+
+/* Info rows */
+.profile-info {
+  text-align: left;
+  margin-top: 8px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-label {
+  font-size: 13px;
+  color: #777;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* Form  */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #777;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #e94560;
+}
+
+/* Buttons */
+.btn-edit {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #1a1a2e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-edit:hover {
+  background-color: #2d2d4e;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-save {
+  flex: 1;
+  padding: 11px;
+  background-color: #e94560;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #c73652;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 11px;
+  background-color: transparent;
+  color: #777;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f5f5f5;
+}
+
+/* States */
+.profile-state {
+  text-align: center;
+  padding: 80px;
+  color: #777;
+  font-size: 16px;
+}
+
+.profile-error {
+  color: #e94560;
+}
