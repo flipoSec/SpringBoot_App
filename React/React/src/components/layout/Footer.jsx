@@ -6,12 +6,12 @@ import {Link} from 'react-router-dom';
 export default function Footer() {
   return (
     <>
-      <footer className="footer-root">
+      <footer className="footer-root" style={{backgroundColor:'red'}}>
         <div className="footer-inner">
           <div>
             <div className="footer-brand">Shoppi<em>fy</em></div>
             <p className="footer-tagline">
-              A full-stack e-commerce project built with Spring Boot, React & MySQL.
+              A full-stack e-commerce project.
             </p>
           </div>
 
