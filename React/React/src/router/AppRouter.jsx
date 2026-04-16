@@ -11,10 +11,10 @@ import ProductDetail from '../pages/public/ProductDetail';
 import Profile       from '../pages/public/Profile';
 import Login         from '../pages/auth/Login';
 import Register      from '../pages/auth/Register';
-import Dashboard         from '../pages/admin/Dashboard';
-import ManageProducts    from '../pages/admin/ManageProducts';
-import ManageCategories  from '../pages/admin/ManageCategories';
-import ManageUsers       from '../pages/admin/ManageUsers';
+// import Dashboard         from '../pages/admin/Dashboard';
+// import ManageProducts    from '../pages/admin/ManageProducts';
+// import ManageCategories  from '../pages/admin/ManageCategories';
+// import ManageUsers       from '../pages/admin/ManageUsers';
 
 export default function AppRouter() {
     return(
@@ -28,7 +28,7 @@ export default function AppRouter() {
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/register' element={<Register/>}/>
 
-                    <Route path='/profile' element={
+                    {/* <Route path='/profile' element={
                         <ProtectedRoute requireAuth>
                             <Profile></Profile>
                     </ProtectedRoute>}/>
@@ -52,7 +52,7 @@ export default function AppRouter() {
                         <ProtectedRoute requireAuth requireAdmin>
                         <ManageUsers />
                         </ProtectedRoute>
-                    } />
+                    } /> */}
                 </Routes>
                 <Footer />
             </AuthProvider>
