@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext(null); 
-export default AuthProvider = ({children}) => {
+export const AuthProvider = ({children}) => {
     const [token, setToken] = useState(localStorage.getItem('token')|| null);
     const [user, setUser]= useState(JSON.parse(localStorage.getItem('user') || null));
     const login = (data) => {
@@ -17,7 +17,7 @@ export default AuthProvider = ({children}) => {
         setUser(null);
     };
     return(
-        <AuthContext.prototype value={{
+        <AuthContext.Provider value={{
             user,
             token,
             isAuthenticated: !!token,
@@ -26,7 +26,7 @@ export default AuthProvider = ({children}) => {
             logout,
         }}>
             {children}
-        </AuthContext.prototype>
+        </AuthContext.Provider>
     );
 }
 export const useAuth = () => useContext(AuthContext);
