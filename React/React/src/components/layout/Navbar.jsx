@@ -20,7 +20,7 @@ export default function Navbar() {
       <nav className="nav-root">
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
-            Shoppi<em>fy</em>
+            Fli<em>po</em>
           </Link>
 
           <ul className="nav-links">
