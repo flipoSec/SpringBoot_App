@@ -5,10 +5,10 @@ import ProtectedRoute from '../components/common/ProtectedRoute';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
-// import Home          from '../pages/public/Home';
-// import Products      from '../pages/public/Products';
-// import ProductDetail from '../pages/public/ProductDetail';
-// import Profile       from '../pages/public/Profile';
+import Home          from '../pages/public/Home';
+import Products      from '../pages/public/Products';
+import ProductDetail from '../pages/public/ProductDetail';
+import Profile       from '../pages/public/Profile';
 import Login         from '../pages/auth/Login';
 import Register      from '../pages/auth/Register';
 // import Dashboard         from '../pages/admin/Dashboard';
@@ -22,9 +22,9 @@ export default function AppRouter() {
             <AuthProvider>
                 <Navbar/>
                 <Routes>
-                    {/* <Route path='/' element={<Home/>}/>
+                    <Route path='/' element={<Home/>}/>
                     <Route path='/products' element={<Products/>}/>
-                    <Route path='/products/:id' element={<ProductDetail/>}/> */}
+                    <Route path='/products/:id' element={<ProductDetail/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/register' element={<Register/>}/>
 
