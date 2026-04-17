@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom';
 export default function Footer() {
   return (
     <>
-      <footer className="footer-root" style={{backgroundColor:'red'}}>
+      <footer className="footer-root">
         <div className="footer-inner">
           <div>
-            <div className="footer-brand">Shoppi<em>fy</em></div>
+            <div className="footer-brand">Fli<em>po</em></div>
             <p className="footer-tagline">
               A full-stack e-commerce project.
             </p>
@@ -39,10 +39,10 @@ export default function Footer() {
             © 2026 · Kafka · M . Flipo
           </span>
           <div className="footer-stack">
-            <span>Spring Boot</span>
-            <span>React</span>
-            <span>MySQL</span>
-            <span>JWT</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
           </div>
         </div>
       </footer>
