@@ -74,6 +74,7 @@ export default function Login(){
                     <button className="auth-submit" type="submit" disabled={loading}>
                         {loading ? "Loading..." : "Login"}
                     </button>
+                    <Link to='/register' className="auth-link">Don't have account!</Link>
                 </div>
             </form>
         </div>
