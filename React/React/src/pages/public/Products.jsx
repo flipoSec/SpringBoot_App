@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-import "./Products.css";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
