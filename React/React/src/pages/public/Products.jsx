@@ -26,23 +26,19 @@ export default function Products() {
     setError(null);
 
     try {
-      let response;
-      const query = [];
+        let response;
 
-      if (params.name) {
-        query.push(`name=${encodeURIComponent(params.name)}`);
-      }
-      if (params.categoryId) {
-        query.push(`categoryId=${encodeURIComponent(params.categoryId)}`);
-      }
+        if (params.name && params.categoryId) {
+            response = await api.get(`/products/search?name=${encodeURIComponent(params.name)}`);
+        } else if (params.name) {
+            response = await api.get(`/products/search?name=${encodeURIComponent(params.name)}`);
+        } else if (params.categoryId) {
+            response = await api.get(`/products/category/${params.categoryId}`);
+        } else {
+            response = await api.get("/products");
+        }
 
-      if (query.length > 0) {
-        response = await api.get(`/products/search?${query.join("&")}`);
-      } else {
-        response = await api.get("/products");
-      }
-
-      setProducts(response.data);
+        setProducts(response.data);
     } catch (err) {
       setError("Failed to load products. Please try again.");
     } finally {
@@ -130,7 +126,7 @@ export default function Products() {
 
       {!loading && !error && products.length === 0 && (
         <div className="products-empty">
-          <p>No products found. Try adjusting your search or category filters.</p>
+          <p>No products found.</p>
         </div>
       )}
 
