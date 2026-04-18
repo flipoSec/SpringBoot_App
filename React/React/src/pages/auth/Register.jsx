@@ -31,7 +31,7 @@ export default function Register(){
             navigate('/login');
         }
         catch(err){
-            setError(err.response?.data?.message || "Erreur lors de l'inscription");
+            setError(err.response?.data?.message || "Failed!");
         }
         finally{
             setLoading(false);
