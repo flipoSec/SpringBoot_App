@@ -17,13 +17,13 @@ public class ProductController {
 
     private final ProductService productService;
 
-    // GET /api/products — public
+
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAll() {
         return ResponseEntity.ok(productService.findAll());
     }
 
-    // GET /api/products/{id} — public
+
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getById(
             @PathVariable Long id
@@ -31,7 +31,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.findById(id));
     }
 
-    // GET /api/products/category/{categoryId} — public
+
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<ProductResponse>> getByCategory(
             @PathVariable Long categoryId
@@ -39,7 +39,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.findByCategoryId(categoryId));
     }
 
-    // GET /api/products/search?name=phone — public
+
     @GetMapping("/search")
     public ResponseEntity<List<ProductResponse>> search(
             @RequestParam(required = false) String name,
@@ -47,29 +47,29 @@ public class ProductController {
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice
     ) {
-        // Combined name + category search
+
         if (name != null && categoryId != null) {
             return ResponseEntity.ok(
                     productService.searchByNameAndCategory(name, categoryId)
             );
         }
-        // Name only search
+
         if (name != null) {
             return ResponseEntity.ok(productService.searchByName(name));
         }
-        // Price range filter
+
         if (minPrice != null && maxPrice != null) {
             return ResponseEntity.ok(productService.findByPriceRange(minPrice, maxPrice));
         }
-        // Category only
+
         if (categoryId != null) {
             return ResponseEntity.ok(productService.findByCategoryId(categoryId));
         }
-        // No filters — return all
+
         return ResponseEntity.ok(productService.findAll());
     }
 
-    // POST /api/products — admin only
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProductResponse> create(
@@ -78,7 +78,7 @@ public class ProductController {
         return ResponseEntity.status(201).body(productService.create(request));
     }
 
-    // PUT /api/products/{id} — admin only
+
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProductResponse> update(
@@ -88,7 +88,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.update(id, request));
     }
 
-    // DELETE /api/products/{id} — admin only
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(

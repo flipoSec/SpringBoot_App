@@ -15,7 +15,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    // POST /api/auth/register
+
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(
             @RequestBody RegisterRequest request
@@ -23,7 +23,7 @@ public class AuthController {
         return ResponseEntity.status(201).body(authService.register(request));
     }
 
-    // POST /api/auth/login
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(
             @RequestBody LoginRequest request

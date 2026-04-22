@@ -18,14 +18,14 @@ public class UserController {
 
     private final UserService userService;
 
-    // GET /api/users — admin only
+
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<AuthResponse>> getAll() {
         return ResponseEntity.ok(userService.findAll());
     }
 
-    // GET /api/users/me — logged in user (any role)
+
     @GetMapping("/me")
     public ResponseEntity<AuthResponse> getMe(
             @AuthenticationPrincipal UserDetails userDetails
@@ -33,7 +33,7 @@ public class UserController {
         return ResponseEntity.ok(userService.findByEmail(userDetails.getUsername()));
     }
 
-    // DELETE /api/users/{id} — admin only
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(

@@ -17,13 +17,13 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    // GET /api/categories — public
+
     @GetMapping
     public ResponseEntity<List<CategoryResponse>> getAll() {
         return ResponseEntity.ok(categoryService.findAll());
     }
 
-    // GET /api/categories/{id} — public
+
     @GetMapping("/{id}")
     public ResponseEntity<CategoryResponse> getById(
             @PathVariable Long id
@@ -31,7 +31,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.findById(id));
     }
 
-    // POST /api/categories — admin only
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CategoryResponse> create(
@@ -40,7 +40,7 @@ public class CategoryController {
         return ResponseEntity.status(201).body(categoryService.create(request));
     }
 
-    // PUT /api/categories/{id} — admin only
+
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CategoryResponse> update(
@@ -50,7 +50,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.update(id, request));
     }
 
-    // DELETE /api/categories/{id} — admin only
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(
