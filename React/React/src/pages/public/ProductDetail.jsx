@@ -1,83 +1,96 @@
-import { useState, useEffect, useEffectEvent } from "react";
-import {Link, NavLink, useNavigate} from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../../api/axios";
 
-export default function ProductDetail(){
-    const [product, setProducts] = useState(null);
-    const {id} = useParams();
+export default function ProductDetail() {
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        setLoading(true);
+        api.get(`/products/${id}`)
+            .then((res) => {
+                setProduct(res.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Error fetching product:", err);
+                setLoading(false);
+            });
+    }, [id]); 
+
     const handleBack = () => {
-        Navigate(-1)
-    }
-    const handleAddCart = ( ) => {
+        navigate('/products'); 
+    };
 
-    }
-    useEffect(()=>{
-        api.get(`products/${id}`)
-        .then((res) => setProducts(res.data))
-        .catch(() => {});
-    }, [])
+    const handleAddCart = () => {
+        console.log("Adding to cart:", product.id);
+        
+    };
 
-    return(<div>
-        <div>
-            <Link to='/products'>Products</Link>
-            {'  >  '}
-            {product?.name}
-        </div>
+    if (loading) return <div className="loading-state">Loading product details...</div>;
+    if (!product) return <div className="error-message">Product not found.</div>;
 
-        <div className="products-grid">
-            {product.map((prod) => (
-                <article  className="product-card" key={prod.id}>
-                    <div className="product-card-image">
-                        {prod.imageUrl ? (
-                        <img src={prod.imageUrl} alt={prod.name} />
+    return (
+        <div className="product-detail-container">
+            <nav className="breadcrumb">
+                <Link to='/products'>Products</Link>
+                {' > '}
+                <span>{product.name}</span>
+            </nav>
+
+            <div className="product-detail-view">
+                <article className="product-main">
+                    <div className="product-image-large">
+                        {product.imageUrl ? (
+                            <img src={product.imageUrl} alt={product.name} />
                         ) : (
-                        <div className="loading-state">No image available</div>
+                            <div className="no-image-placeholder">No image available</div>
                         )}
                     </div>
 
-                    <div className="product-card-body">
-                        <div className="product-meta">
-                            <span>{prod.categoryName || "General"}</span>
-                            <span className={`product-stock ${prod.quantity === 0 ? "out" : ""}`}>
-                                {prod.quantity === 0 ? "Out of stock" : `${prod.quantity} left`}
-                            </span>
+                    <div className="product-info-section">
+                        <div className="product-header">
+                            <span className="category-badge">{product.categoryName || "General"}</span>
+                            <h1 className="product-title">{product.name}</h1>
+                            <p className={`stock-status ${product.quantity === 0 ? "out" : ""}`}>
+                                {product.quantity === 0 ? "Out of stock" : `${product.quantity} units left`}
+                            </p>
                         </div>
 
-                        <h2 className="product-name">{prod.name}</h2>
-                        <p className="product-description">
-                        {prod.description || "No product description available."}
+                        <p className="product-detail-description">
+                            {product.description || "No product description available."}
                         </p>
 
-                        <div className="product-details">
-                            <span className="product-price">
-                                {typeof prod.price === "number"
-                                ? `${prod.price.toFixed(2)} MAD`
-                                : "Price unavailable"}
+                        <div className="product-price-box">
+                            <span className="price-tag">
+                                {typeof product.price === "number"
+                                    ? `${product.price.toFixed(2)} MAD`
+                                    : "Price unavailable"}
                             </span>
                         </div>
 
-                        <div className="product-card-footer">
-                            <button
-                                className="button button-primary"
-                                type="button"
-                                onClick={() => handleBack(prod.id)}
+                        <div className="action-buttons">
+                            <button 
+                                className="button button-secondary" 
+                                onClick={handleBack}
                             >
-                                {'<- Back to Products'}
-
+                                ← Back
                             </button>
                             
-                            <button disabled={product.quantity === 0}>
-                            {product.quantity === 0 ? "Out of stock" : "Add to cart"}
+                            <button 
+                                className="button button-primary"
+                                onClick={handleAddCart}
+                                disabled={product.quantity === 0}
+                            >
+                                {product.quantity === 0 ? "Unavailable" : "Add to Cart"}
                             </button>
                         </div>
                     </div>
-                </article>    
-            ))
-            }
+                </article>
+            </div>
         </div>
-        
-    </div>);
+    );
 }
