@@ -26,20 +26,19 @@ export default function Products() {
     setError(null);
 
     try {
-        let response;
+      const query = {
+        name: params.name || undefined,
+        categoryId: params.categoryId || undefined,
+      };
 
-        if (params.name && params.categoryId) {
-            response = await api.get(`/products/search?name=${encodeURIComponent(params.name)}`);
-        } else if (params.name) {
-            response = await api.get(`/products/search?name=${encodeURIComponent(params.name)}`);
-        } else if (params.categoryId) {
-            response = await api.get(`/products/category/${params.categoryId}`);
-        } else {
-            response = await api.get("/products");
-        }
+      const hasFilters = Boolean(query.name || query.categoryId);
+      const response = hasFilters
+        ? await api.get("/products/search", { params: query })
+        : await api.get("/products");
 
-        setProducts(response.data);
+      setProducts(Array.isArray(response.data) ? response.data : []);
     } catch (err) {
+      console.error("Axios error:", err?.response?.data || err?.message || err);
       setError("Failed to load products. Please try again.");
     } finally {
       setLoading(false);
